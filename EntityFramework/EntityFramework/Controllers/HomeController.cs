@@ -21,11 +21,22 @@ namespace EntityFramework.Controllers
         {
             List<Slider> sliders = await _context.Sliders.ToListAsync();
             SliderDetail details = await _context.SliderDetails.FirstOrDefaultAsync();
+            List<Category> categories = await _context.Categories.ToListAsync();
+            List<Product> products = await _context.Products
+                .Include(m => m.Category)
+                .Include(m => m.Images)
+                .OrderByDescending(m => m.Id)
+                .Skip(1)
+                .Take(8)
+                .ToListAsync();
+
 
             HomeVM homeVM = new HomeVM
             {
                 Sliders = sliders,
                 Detail = details,
+                Categories = categories,
+                Products = products
             };
             return View(homeVM);
         }

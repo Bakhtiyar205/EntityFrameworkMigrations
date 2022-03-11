@@ -10,5 +10,8 @@ namespace EntityFramework.ViewModels
     {
         public List<Slider> Sliders { get; set; }
         public SliderDetail Detail { get; set; }
+        public List<Category> Categories { get; set; }
+        public List<Product> Products { get; set; }
+
     }
 }
