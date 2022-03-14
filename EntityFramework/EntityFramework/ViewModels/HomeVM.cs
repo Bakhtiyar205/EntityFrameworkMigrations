@@ -12,6 +12,14 @@ namespace EntityFramework.ViewModels
         public SliderDetail Detail { get; set; }
         public List<Category> Categories { get; set; }
         public List<Product> Products { get; set; }
+        public About Abouts { get; set; }
+        public List<Expert> Experts { get; set; }
+        public List<Expert> ExpertsThoughts { get; set; }
+        public List<Blog> Blogs { get; set; }
+        public List<Instagram> Instagrams { get; set; }
+        public ExpertSection ExpertSection { get; set; }
+
+
 
     }
 }

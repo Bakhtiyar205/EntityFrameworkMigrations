@@ -19,5 +19,13 @@ namespace EntityFramework.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
+        public DbSet<About> Abouts { get; set; }
+        public DbSet<Expert> Experts { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Instagram> Instagrams { get; set; }
+        public DbSet<ExpertImage> ExpertImages { get; set; }
+        public DbSet<AboutAdvantage> aboutAdvantages { get; set; }
+        public DbSet<ExpertSection> ExpertSections { get; set; }
+
     }
 }

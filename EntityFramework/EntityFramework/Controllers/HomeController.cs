@@ -29,6 +29,22 @@ namespace EntityFramework.Controllers
                 .Skip(1)
                 .Take(8)
                 .ToListAsync();
+            About abouts = await _context.Abouts
+                .Include(i=>i.Advantages)
+                .FirstOrDefaultAsync();
+            ExpertSection expertSection = await _context.ExpertSections.FirstOrDefaultAsync();
+            List<Expert> experts = await _context.Experts
+                .Include(i => i.Image)
+                .ToListAsync();
+            List<Expert> expertsThoughts = await _context.Experts
+                .Include(i => i.Image)
+                .OrderBy(m=>m.Id)
+                .Take(2)
+                .OrderByDescending(m=>m.Id)
+                .ToListAsync();
+            List<Blog> blogs = await _context.Blogs.ToListAsync();
+            List<Instagram> instagrams = await _context.Instagrams.ToListAsync();
+
 
 
             HomeVM homeVM = new HomeVM
@@ -36,7 +52,13 @@ namespace EntityFramework.Controllers
                 Sliders = sliders,
                 Detail = details,
                 Categories = categories,
-                Products = products
+                Products = products,
+                Abouts = abouts,
+                Experts = experts,
+                ExpertsThoughts =expertsThoughts,
+                ExpertSection = expertSection,
+                Blogs = blogs,
+                Instagrams = instagrams
             };
             return View(homeVM);
         }
